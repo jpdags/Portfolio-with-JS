@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container" id="home">
+            <nav class="header">
+                <a href="#home"><h1>Home</h1></a>
+                <ul>    
+                    <li><a href="#aboutme">About Me</a></li>
+                    <li><a href="#project">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <a id="theme-mode"><img class="theme-mode" src="light.gif" alt="Theme"></a>  
+                </ul>
+                <select name="option" id="option" onchange="window.location.href=this.value;">
+                    <option value="#aboutme">About Me</option>
+                    <option value="#project">Projects</option>
+                    <option value="#skills">Skills</option>
+                </select> 
+            </nav> 
+        </div>
+        
+        <div class="section1" id="aboutme">
+            <div class="image-container">
+                <h1>About Me</h1>
+                <img src="pfp.jpg" alt="Profile Picture">
+                <h2>JHAN PAUL D. DAGUIO</h2>
+                <h4>Web Developer and Artist</h4>
+            </div>
+            
+            <div class="intro">
+                <div class="edit-controls">
+                    <a id="theme-mode"><img class="theme-mode" src="light.gif" alt="Theme"></a>
+                    <button class="edit-btn" id="about-edit-btn">Edit</button>
+                    <button class="save-btn" id="about-save-btn" style="display: none;">Save</button>
+                    <button class="cancel-btn" id="about-cancel-btn" style="display: none;">Cancel</button>
+                </div>
+                
+                <div class="editable-content" id="about-content">
+                    <p>My name is <strong>Jhan Paul D. Daguio</strong>, graduated college in Caraga State University, Caraga. 
+                        I am currently working as a <strong>Web Developer</strong> and the indie developer for <strong>Hayopet</strong>. 
+                        Specializing in FrontEnd development, adept in ReactJS and making application from ElectronJS.  
+                        I love to play games, watch anime, draw, make 2D Pixel art, and code.</p>
+                    </div>
+                    <div class="edit-controls">
+                        <h2>Contact</h2>
+                        <button class="edit-btn" id="contact-edit-btn">Edit</button>
+                        <button class="save-btn" id="contact-save-btn" style="display: none;">Save</button>
+                        <button class="cancel-btn" id="contact-cancel-btn" style="display: none;">Cancel</button>
+                    </div>
+                        <div class="editable-content" id="contact-content">
+                            Email:<p> <a href="mailto:jhanpauldaguio0910@gmail.com">jhanpauldaguio0910@gmail.com</a></p>
+                            Address:<p> Butuan City, Agusan del Norte</p>
+                            Phone:<p> <a href="tel:+639515527550">+639515527550</a></p>
+                        </div>
+                    </div>
+            </div>
+        
+        <div class="section2" id="project">
+            <div class="proj-body">
+                <h1>Projects</h1>
+                <div class="proj-container">
+                    <a>
+                        Project: <strong>Hayopet</strong>
+                        <div class="project-description">
+                            A digital pet care management system built with ReactJS and ElectronJS, for students and productivity. Features include pet health tracking, note reminders, focus mode and random gimmicks to help for productivity.
+                        </div>
+                    </a>
+                    <a>
+                        Project: <strong>Apple Cider</strong>
+                        <div class="project-description">
+                            A mobile-first web application for recipe sharing and meal planning, built using modern web technologies and real-time database integration.
+                        </div>
+                    </a>
+                    <a>
+                        Project: <strong>CeeDee</strong>
+                        <div class="project-description">
+                            A music player application with a retro interface, developed using ElectronJS. Features playlist management and visualizer effects.
+                        </div>
+                    </a>
+                    <a>
+                        Project: <strong>Goat</strong>
+                        <div class="project-description">
+                            A minimalist task management tool with focus on productivity and clean design. Built with React and features dark mode support.
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section3" id="skills">
+
+            <div class="skill-body">
+                <h1>Skills</h1>
+                <div class="skill-container">
+                    <div class="skill-item">
+                        <h2>Frontend Development
+                        </h2>
+                        <div class="content">
+                            <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>ReactJS</li>
+                            <li>Bootstrap</li>
+                        </ul>
+                    </div> 
+                    </div>
+                    <div class="skill-item">
+                        <h2>Game Development</h2>
+                        <div class="content">
+                        <ul>
+                            <li>Unity</li>
+                            <li>Godot</li>
+                            <li>GameMaker</li>
+                            <li>Java</li>
+                        </ul>
+                    </div> 
+                    </div>
+                    <div class="skill-item">
+                        <h2>2D Design</h2>
+                        <div class="content">
+                        <ul>
+                            <li>Asperite</li>
+                            <li>Procreate</li>
+                            <li>Krita</li>
+                            <li>ClipStudio</li>
+                        </ul>
+                    </div>
+                    </div>
+                    <div class="skill-item">
+                        <h2>3D Modeling</h2>
+                        <div class="content">
+                        <ul>
+                            <li>Blender</li>
+                            <li>MagicaVoxel</li>
+                            <li>ClipStudio</li>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h2>Other Skills</h2>
+                        <div class="content">
+                        <ul>
+                            <li>Figma</li>
+                            <li>UI/UX Design</li>
+                            <li>Video Editing</li>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <footer>
+            
+            <ul class="contacts">
+                <li><a href="https://www.facebook.com/jhanpaul.daguio.5"><img src="https://img.icons8.com/?size=100&id=118468&format=png&color=000000" alt="Facebook"></a></li>
+                <li><a href="https://www.instagram.com/jp.dags/"><img src="https://img.icons8.com/?size=100&id=32292&format=png&color=000000" alt="Instagram"></a></li>
+                <li><a href="https://www.linkedin.com/in/jhan-paul-daguio-7b1a37381"><img src="https://img.icons8.com/?size=100&id=447&format=png&color=000000" alt="LinkedIn"></a></li>
+                <li><a href="https://github.com/jpdags"><img src="https://img.icons8.com/?size=100&id=38388&format=png&color=000000" alt="GitHub"></a></li>
+            </ul>
+             <div>2025 &copy; Jhan Paul Daguio. All rights reserved</div>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>
