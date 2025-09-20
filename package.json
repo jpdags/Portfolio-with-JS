@@ -1,0 +1,30 @@
+{
+  "name": "portfolio-with-js",
+  "version": "1.0.0",
+  "description": "Portfolio project in our ITE18, to be pass on the data, Sept.22, 2025. This is to test how node.js and express can be utilize me the student to learn",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpdags/Portfolio-with-JS.git"
+  },
+  "keywords": [
+    "node-portfolio"
+  ],
+  "author": "jpdaguio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpdags/Portfolio-with-JS/issues"
+  },
+  "homepage": "https://github.com/jpdags/Portfolio-with-JS#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "nodeman": "^1.1.2"
+  }
+}
