@@ -11,13 +11,13 @@ function toggleTheme(){
     if(isDarkmode){
         html.setAttribute('data-theme', 'dark');
         toggleButtons.forEach(button => {
-            button.querySelector('img').src = 'dark.gif';
+            button.querySelector('img').src = 'imgs/dark.gif';
         });
         localStorage.setItem('theme', 'dark');
     } else {
         html.removeAttribute('data-theme');
         toggleButtons.forEach(button => {
-            button.querySelector('img').src = 'light.gif';
+            button.querySelector('img').src = 'imgs/light.gif';
         });
         localStorage.setItem('theme', 'light');
     }
@@ -150,6 +150,60 @@ function showNotification(message){
     }, 3000);
 }
 
+// Profile picture upload functionality
+function handleProfilePictureUpload(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const fileInput = form.querySelector('input[type="file"]');
+    const profileImg = document.querySelector('.image-container img');
+    
+    if (!fileInput.files || !fileInput.files[0]) {
+        alert('Please choose an image to upload.');
+        return;
+    }
+    
+    // Confirm before uploading
+    const confirmUpload = confirm("Are you sure you want to replace your profile picture?");
+    if (!confirmUpload) {
+        return;
+    }
+    
+    const formData = new FormData(form);
+    
+    fetch('/upload', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Upload failed');
+        }
+        return response.text();
+    })
+    .then(result => {
+        // Extract the filename from the response
+        const match = result.match(/uploads\/([^"']+)/);
+        if (match && match[1]) {
+            const filename = match[1];
+            // Update the profile image src with the new uploaded image
+            if (profileImg) {
+                profileImg.src = `/uploads/${filename}?ts=${Date.now()}`;
+                showNotification('Profile picture updated successfully!');
+            }
+        } else {
+            showNotification('Upload successful!');
+        }
+        
+        // Reset the form
+        form.reset();
+    })
+    .catch(error => {
+        console.error('Upload error:', error);
+        alert('Error uploading image. Please try again.');
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const toggleButtons = document.querySelectorAll('#theme-mode');
     
@@ -165,10 +219,37 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('contact-save-btn').addEventListener('click', saveContactContent);
     document.getElementById('contact-cancel-btn').addEventListener('click', cancelContactEditing);
     
+    // Handle the upload form submission
+    const uploadForm = document.getElementById('uploadForm');
+    if (uploadForm) {
+        uploadForm.addEventListener('submit', handleProfilePictureUpload);
+    }
+    
+    // Make profile image clickable to trigger file input
+    const profileImg = document.querySelector('.image-container img');
+    const fileInput = document.querySelector('#uploadForm input[type="file"]');
+    
+    if (profileImg && fileInput) {
+        profileImg.addEventListener('click', function() {
+            fileInput.click();
+        });
+        
+        // Update profile image preview when file is selected
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profileImg.src = e.target.result;
+                };
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    }
+    
     if (isDarkmode) {
         document.documentElement.setAttribute('data-theme', 'dark');
         toggleButtons.forEach(button => {
-            button.querySelector('img').src = 'dark.gif';
+            button.querySelector('img').src = 'imgs/dark.gif';
         });
     }
     

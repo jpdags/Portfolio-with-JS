@@ -217,6 +217,7 @@ select:hover {
     border: 5px solid var(--primary);
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);
     margin-top: 0;
+    cursor: pointer;
 }
 .section1 .intro{
     display: block;
@@ -237,6 +238,12 @@ select:hover {
 }
 .section1 h4{
     color: var(--primary-light);
+}
+.description{
+    flex-direction: column;
+}
+.description .upload img{
+    width: 50px;
 }
 /*-------------------------------------------section 2*/
 .section2 {
@@ -291,6 +298,7 @@ select:hover {
     gap: 30px;
     padding: 20px;
 }
+
 
 .proj-container a {
     background: var(--project-bg);

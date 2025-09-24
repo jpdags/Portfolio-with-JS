@@ -4,6 +4,8 @@
   "description": "Portfolio project in our ITE18, to be pass on the data, Sept.22, 2025. This is to test how node.js and express can be utilize me the student to learn",
   "main": "script.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
